@@ -34,6 +34,11 @@ app.on("ready", _ => {
                     console.log('clicked about')
                 },
                 accelerator: "Ctrl+B"
+                }
+            }, {
+                type: "separator"
+            }, {
+                label: "Quit"
             }]
         }
     ];
