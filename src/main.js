@@ -33,6 +33,10 @@ app.on("ready", _ => {
                 click: _ => {
                     console.log('clicked about')
                 }
+            }, {
+                type: "separator"
+            }, {
+                label: "Quit"
             }]
         }
     ];
