@@ -38,7 +38,10 @@ app.on("ready", _ => {
             }, {
                 type: "separator"
             }, {
-                label: "Quit"
+                label: "Quit",
+                click: _ => {
+                    app.quit();
+                }
             }]
         }
     ];
