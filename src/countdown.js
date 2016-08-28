@@ -3,7 +3,6 @@ module.exports = function countdown(tick) {
 
     let timer = setInterval( _ => {
         tick(count--);
-        console.log("count ", count);
         if (count === -1) {
             clearInterval(timer);
         }

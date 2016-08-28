@@ -6,24 +6,31 @@ const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
 const ipc = electron.ipcMain;
 
-let mainWindow;
+const windows = [];
 
 app.on("ready", _ => {
-    mainWindow = new BrowserWindow({
-        height: 400,
-        width: 400
-    });
+    [1, 2, 3].forEach( _ => {
+        let win = new BrowserWindow({
+            height: 400,
+            width: 400
+        });
 
-    mainWindow.loadURL(`file://${__dirname}/countdown.html`);
+        win.loadURL(`file://${__dirname}/countdown.html`);
 
-    mainWindow.on("closed", _ => {
-        mainWindow = null;
+        win.on("closed", _ => {
+            mainWindow = null;
+        });
+
+        windows.push(win);
     });
 });
 
 ipc.on("countdown-start", _ => {
     countdown(count => {
-        // webContents is an event emitter instance
-        mainWindow.webContents.send("countdown", count);
+        console.log("count", count);
+        windows.forEach(win => {
+          // webContents is an event emitter instance
+          win.webContents.send("countdown", count);
+        })
     });
 });
