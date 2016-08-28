@@ -33,7 +33,8 @@ app.on("ready", _ => {
                 click: _ => {
                     console.log('clicked about')
                 },
-                accelerator: "Ctrl+B"
+                accelerator: "Ctrl+B",
+                role: "about"
             }, {
                 type: "separator"
             }, {
