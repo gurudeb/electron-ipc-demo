@@ -32,7 +32,8 @@ app.on("ready", _ => {
                 label: `About ${name}`,
                 click: _ => {
                     console.log('clicked about')
-                }
+                },
+                accelerator: "Ctrl+B"
             }]
         }
     ];
