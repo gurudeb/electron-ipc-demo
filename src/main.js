@@ -24,9 +24,16 @@ app.on("ready", _ => {
 
         windows.push(win);
     });
+    const name = electron.app.getName();
     const template = [
         {
-            label: electron.app.getName()
+            label: name,
+            submenu: [{
+                label: `About ${name}`,
+                click: _ => {
+                    console.log('clicked about')
+                }
+            }]
         }
     ];
     const menu = Menu.buildFromTemplate(template);
