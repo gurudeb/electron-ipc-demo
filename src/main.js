@@ -3,11 +3,8 @@ const path = require("path");
 
 const countdown = require("./countdown");
 
-const app = electron.app;
-const BrowserWindow = electron.BrowserWindow;
 const ipc = electron.ipcMain;
-const Menu = electron.Menu;
-const Tray = electron.Tray;
+const { app, BrowserWindow, Tray, Menu } = electron; // de-structure
 
 const windows = [];
 
