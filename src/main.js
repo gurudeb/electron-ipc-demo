@@ -1,4 +1,5 @@
 const electron = require("electron");
+const path = require("path");
 
 const countdown = require("./countdown");
 
@@ -6,10 +7,12 @@ const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
 const ipc = electron.ipcMain;
 const Menu = electron.Menu;
+const Tray = electron.Tray;
 
 const windows = [];
 
 app.on("ready", _ => {
+    new Tray(path.join('src', 'alien.png'));
     [1, 2, 3].forEach( _ => {
         let win = new BrowserWindow({
             height: 400,
