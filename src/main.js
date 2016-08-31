@@ -9,7 +9,7 @@ const { app, BrowserWindow, Tray, Menu } = electron; // de-structure
 const windows = [];
 
 app.on("ready", _ => {
-    new Tray(path.join('src', 'alien.png'));
+    const tray = new Tray(path.join('src', 'alien.png'));
     [1, 2, 3].forEach( _ => {
         let win = new BrowserWindow({
             height: 400,
@@ -48,6 +48,18 @@ app.on("ready", _ => {
     ];
     const menu = Menu.buildFromTemplate(template);
     Menu.setApplicationMenu(menu);
+    const contextMenu = Menu.buildFromTemplate([
+        {
+            label: "Wow",
+            click: _ => console.log("wow")
+        },
+        {
+            label: "Awesome",
+            click: _ => console.log("awesome")
+        }
+    ]);
+    tray.setContextMenu(contextMenu);
+    tray.setToolTip("Alien Attack Counter");
 });
 
 ipc.on("countdown-start", _ => {
