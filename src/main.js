@@ -51,6 +51,7 @@ app.on("ready", _ => {
     const contextMenu = Menu.buildFromTemplate([
         {
             label: "Wow",
+            enabled: false,
             click: _ => console.log("wow")
         },
         {
